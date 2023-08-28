@@ -1,5 +1,5 @@
 {
-    "name": "my-project-devcontainer",
+    "name": "template-demos",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
     "features": {
         "ghcr.io/devcontainers/features/go:1": {
