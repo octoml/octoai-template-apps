@@ -2,7 +2,7 @@
 
 This demo allows a user to speak into the microphone, and uses an AI model to transcribe audio into text in real-time. 
 The transcription is done via the use-whisper React component, which is a wrapper around the OctoAI Whisper endpoint.
-The use-whisper component shares the same UX as https://github.com/chengsokdara/use-whisper, the only difference being that (1) you should provide an OctoAI apiKey instead of an OpenAI apiKey and (2) you should provide a few extra parameters (an apiUrl string, the streaming boolean, and the timeSlice number).
+The use-whisper component shares the same UX as https://github.com/chengsokdara/use-whisper, the only difference being that (1) you should provide an OctoAI apiKey instead of an OpenAI apiKey and (2) you should provide an extra apiUrl parameter that indicates what OctoAI endpoint you are trying to use.
 
 # Core steps
 
@@ -26,12 +26,15 @@ const {
     timeSlice: 1_000, // 1 second
   });
 ```
-3. Now, download all the dependencies to enable this application (listed in package.json), including @rkimball/use-whisper, by running 
+3. Now, install all the dependencies to enable this application (listed in package.json), including @rkimball/use-whisper, by running 
 `yarn` in the root of this real-time-audio-conversation repo.
-4. Then, run `yarn dev` to run this demo locally.
+4. Then, run `yarn dev` to run this demo locally. Open http://localhost:3000/ in your browser to see the app.
+
+<img width="1051" alt="Screenshot 2023-08-29 at 2 33 22 PM" src="https://github.com/octoml/octoai-template-apps/assets/31609083/fdc28b48-7545-4202-b852-e8c8ccd280f1">
+
 5. Click on the Start button to start recording. Speak for a few seconds.
 6. Click on the Stop button whenever you're done speaking.
-7. Inspect the /src/pages/index.tsx to see how useWhisper is used, primarily:
+
 
 
 
