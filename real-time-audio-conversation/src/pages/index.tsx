@@ -41,7 +41,7 @@ export default function Page() {
     stopRecording,
   } = useWhisper({
     apiUrl: "https://whisper-demo-kk0powt97tmb.octoai.cloud/v1/audio/",
-    apiKey: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJkNTg3ODYyOS05MmRiLTQxY2MtYjA3Ni04YjBlZmI5OTRkMmYiLCJ0eXBlIjoidXNlckFjY2Vzc1Rva2VuIiwidGVuYW50SWQiOiJlODllOTNkYi0yMzE1LTQxNWMtOWQ5Yi0zZDM0YmUwNGVkNDIiLCJ1c2VySWQiOiJmMGE2YzQ0MS1iNWE5LTQ0ODgtOGFmOC0wYTViOWIyZDI2ODAiLCJyb2xlcyI6WyJGRVRDSC1ST0xFUy1CWS1BUEkiXSwicGVybWlzc2lvbnMiOlsiRkVUQ0gtUEVSTUlTU0lPTlMtQlktQVBJIl0sImF1ZCI6IjNkMjMzOTQ5LWEyZmItNGFiMC1iN2VjLTQ2ZjYyNTVjNTEwZSIsImlzcyI6Imh0dHBzOi8vaWRlbnRpdHkub2N0b21sLmFpIiwiaWF0IjoxNjkzMzI4NzYzfQ.sLPkJSxAyPSVbqze4UmBO0tPmtGK7Bk5XAP9hbo26PSsfb9mbJzCZWqK89PAzaBb1KfAIXFf-sB0NdW7jB4ycaVQba5mAD6SvrMQD1GK8NAzSMW74BfyDN8K8O8_3v-NLFZqo3ZeCgLEV-mMobYBMmuW-CdjO6Z6Gooe1QmpqXOe6QhOMFTfQlrTJKi797VWUK-lOWu8TJ_B22yeEsiMoQCEa7v0qiFoVtJQrLlCYxOOf07YwyIoFt96InrPtRt5_5qSFr0NoHnwr0IsSvXIrD4HomoHgrVaBkAWt2RDT3bDOm-ELjdQDGnWYwvh276Etqvbw_N9hQrdOxFPVbAIHg",
+    apiKey: "YOUR_OCTOAI_TOKEN",
     streaming: true,
     timeSlice: 1_000, // 1 second
   });
