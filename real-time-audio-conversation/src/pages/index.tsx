@@ -40,7 +40,7 @@ function Output({ label, output }: OutputProps) {
 export default function Page() {
 
   let [hasRecorded, setRecorded] = useState(false);
-  console.log('API URL:', process.env.NEXT_PUBLIC_apiUrl);
+
   const {
     recording,
     speaking,
