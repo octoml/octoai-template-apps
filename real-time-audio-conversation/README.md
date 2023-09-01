@@ -7,7 +7,7 @@ The use-whisper component shares the same UX as https://github.com/chengsokdara/
 # Core steps
 
 1. Sign up for an OctoAI account by navigating [here](https://identity.octoml.ai/oauth/account/sign-up?redirectUrl=https://octoai.cloud). After you've set a password you should be redirected to the main page of the product, which is https://octoai.cloud.
-2. After you've authenticated, go to your OctoAI Account Settings [page](https://octoai.cloud/settings) to create an access token. Paste your token and Whisper URL into the /src/pages/index.tsx file where useWhisper is used. When prototyping, you can use the quickstart template endpoint for Whisper at `https://whisper-demo-kk0powt97tmb.octoai.cloud/v1/audio/`, but note that this endpoint has a rate limit of 15 inferences per hour, so you'd have to clone the endpoint to your own account in order to overcome the rate limit.
+2. After you've authenticated, go to your OctoAI Account Settings [page](https://octoai.cloud/settings) to create an access token. Paste your token and Whisper URL into the /src/pages/index.tsx file where useWhisper is used. When prototyping, you can use the quickstart template endpoint for Whisper at `https://whisper-demo-kk0powt97tmb.octoai.cloud/v1/audio/`, but note that this endpoint has a rate limit of 15 inferences per hour, and you'd have to clone the endpoint to your own account in order to overcome the rate limit.
 
 ```
 import { useWhisper } from "@rkimball/use-whisper";
