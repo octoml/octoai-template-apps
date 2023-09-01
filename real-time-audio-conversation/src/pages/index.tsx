@@ -3,7 +3,17 @@
 import { useWhisper } from "@rkimball/use-whisper";
 import { useState } from "react";
 
-function Status({ name, status }) {
+interface StatusProps {
+  name: "Recording" | "Speaking" | "Transcribing";
+  status: boolean
+}
+
+interface OutputProps {
+  label: string;
+  output?: string;
+}
+
+function Status({ name, status }: StatusProps) {
   return (
     <div className="sm:col-span-4">
       <label
@@ -18,7 +28,7 @@ function Status({ name, status }) {
   )
 }
 
-function Output({ label, output }) {
+function Output({ label, output }: OutputProps) {
   console.log(output)
   return (
       <div>
@@ -30,7 +40,7 @@ function Output({ label, output }) {
 export default function Page() {
 
   let [hasRecorded, setRecorded] = useState(false);
-
+  console.log('API URL:', process.env.NEXT_PUBLIC_apiUrl);
   const {
     recording,
     speaking,
@@ -40,8 +50,8 @@ export default function Page() {
     startRecording,
     stopRecording,
   } = useWhisper({
-    apiUrl: "https://whisper-demo-kk0powt97tmb.octoai.cloud/v1/audio/",
-    apiKey: "YOUR_OCTOAI_TOKEN",
+    apiUrl: process.env.NEXT_PUBLIC_apiUrl,
+    apiKey: process.env.NEXT_PUBLIC_apiKey,
     streaming: true,
     timeSlice: 1_000, // 1 second
   });
