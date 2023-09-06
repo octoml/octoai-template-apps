@@ -6,6 +6,8 @@ import React from 'react'
 
 const activeTranscript : string[] = [];
 
+let recordingActive = false;
+
 function Output({ label, output }) {
   console.log(output)
   return (
@@ -18,8 +20,6 @@ function Output({ label, output }) {
 
 export default function Page() {
 
-  var recordingActive = false;
-
   function AppStartRecording() {
     console.log("AppStartRecording")
     transcript.text = ""
@@ -27,10 +27,16 @@ export default function Page() {
   }
 
   function Status({ name, status }) {
+    console.log("Hello from Status", recordingActive, speaking)
     if(speaking && !recordingActive) {
+      console.log("Speech started")
       recordingActive = true;
     } else if (!speaking && recordingActive) {
+      console.log("Speech stopped")
       recordingActive = false;
+      console.log("Calling restartRecording")
+      restartRecording()
+      console.log("Recording restarted")
       // stopRecording()
       // startRecording()
       // console.log("restart recording")
@@ -61,9 +67,9 @@ export default function Page() {
     speaking,
     transcribing,
     transcript,
-    chunks,
     startRecording,
     stopRecording,
+    restartRecording,
   } = useWhisper({
     apiUrl: "http://localhost:8000/v1/audio/",
     // apiUrl: "https://whisper-demo-cwrd1117bygh.customer-endpoints.nimbus.octoml.ai/v1/audio/",
@@ -105,7 +111,6 @@ export default function Page() {
               onClick={() => stopRecording()}>
               Stop
             </button>
-            <span>{chunks.current}</span>
           </div>
         </form>
     </div>
