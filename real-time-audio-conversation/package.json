@@ -14,7 +14,7 @@
     "@ffmpeg/ffmpeg": "^0.11.6",
     "@heroicons/react": "^2.0.18",
     "@next/font": "^13.4.12",
-    "@rkimball/use-whisper": "0.2.4",
+    "@rkimball/use-whisper": "0.2.6",
     "@types/js-yaml": "4.0.5",
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",

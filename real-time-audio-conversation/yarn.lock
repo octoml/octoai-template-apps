@@ -210,10 +210,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@rkimball/use-whisper@0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@rkimball/use-whisper/-/use-whisper-0.2.4.tgz#f1db05f76f443975d90f17192305143626cd09d9"
-  integrity sha512-L7J+3zhdEmxuiMeuJau+yKk0s0K4oXUV5R+ZtlodUaHGXwRRE2+F/OnqAX82jObtTKXlYShHN2Ecyli6tm1jdg==
+"@rkimball/use-whisper@0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@rkimball/use-whisper/-/use-whisper-0.2.6.tgz#e709ad85d212c1c71f715cf3deee016878677533"
+  integrity sha512-N1RXJ/ARobyMEvxtZGGV2RlxwY7HLHGobKDL5Rxnzct2gy2xISc75WHtmUemeXJ0mhdb/8vEh41Lw/l5t26dYg==
   dependencies:
     "@chengsokdara/react-hooks-async" "^0.0.2"
     "@ffmpeg/ffmpeg" "^0.11.6"
