@@ -1,35 +1,12 @@
 "use client";
 
-import { useWhisper } from "@rkimball/use-whisper";
+import { useWhisper } from "@octoai/use-whisper";
 import { useState } from "react";
+import React from 'react';
 
-interface StatusProps {
-  name: "Recording" | "Speaking" | "Transcribing";
-  status: boolean
-}
+let recordingActive = false;
 
-interface OutputProps {
-  label: string;
-  output?: string;
-}
-
-function Status({ name, status }: StatusProps) {
-  return (
-    <div className="sm:col-span-4">
-      <label
-        htmlFor={name}
-        className="block text-sm font-medium leading-6 text-gray-900"
-      >
-        {name} {status ? "✅" : "❌"}
-      </label>
-      <div className="mt-2">
-      </div>
-    </div>
-  )
-}
-
-function Output({ label, output }: OutputProps) {
-  console.log(output)
+function Output({ label, output }) {
   return (
       <div>
         <h1>{label}</h1>
@@ -37,23 +14,51 @@ function Output({ label, output }: OutputProps) {
       </div>
   )
 }
+
 export default function Page() {
 
-  let [hasRecorded, setRecorded] = useState(false);
+  function AppStartRecording() {
+    console.log("AppStartRecording")
+    transcript.text = ""
+    startRecording()
+  }
+
+  function Status({ name, status }) {
+    if(speaking && !recordingActive) {
+      recordingActive = true;
+    } else if (!speaking && recordingActive) {
+      recordingActive = false;
+      restartRecording()
+    }
+
+    return (
+      <div className="sm:col-span-4">
+        <label
+          htmlFor={name}
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          {name} {status ? "✅" : "❌"}
+        </label>
+        <div className="mt-2">
+        </div>
+      </div>
+    )
+  }
 
   const {
     recording,
     speaking,
     transcribing,
     transcript,
-    pauseRecording,
     startRecording,
     stopRecording,
+    restartRecording,
   } = useWhisper({
-    apiUrl: process.env.NEXT_PUBLIC_apiUrl,
-    apiKey: process.env.NEXT_PUBLIC_apiKey,
+    apiKey: process.env.NEXT_PUBLIC_WHISPER_API_TOKEN,
+    apiUrl: process.env.NEXT_PUBLIC_WHISPER_API_URL,
     streaming: true,
     timeSlice: 1_000, // 1 second
+    autoTranscribe: true,
   });
 
   return (
@@ -79,7 +84,7 @@ export default function Page() {
             <button
               type="button"
               className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              onClick={() => startRecording()}>
+              onClick={() => AppStartRecording()}>
               Start
             </button>
             <button
