@@ -1,6 +1,6 @@
 "use client";
 
-import { useWhisper } from "@rkimball/use-whisper";
+import { useWhisper } from "@octoai/use-whisper";
 import { useState } from "react";
 import React from 'react';
 

@@ -1,4 +1,4 @@
 {
     "name": "template-demos",
-    "build": {"dockerfile": "Dockerfile"}
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20"
 }
