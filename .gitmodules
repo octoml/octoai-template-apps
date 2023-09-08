@@ -1,3 +1,3 @@
 [submodule "real-time-audio-conversation/use-whisper"]
 	path = real-time-audio-conversation/use-whisper
-	url = https://github.com/rkimball/use-whisper.git
+	url = https://github.com/octoml/use-whisper.git

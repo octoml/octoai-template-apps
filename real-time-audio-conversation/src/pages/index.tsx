@@ -2,14 +2,11 @@
 
 import { useWhisper } from "@rkimball/use-whisper";
 import { useState } from "react";
-import React from 'react'
-
-const activeTranscript : string[] = [];
+import React from 'react';
 
 let recordingActive = false;
 
 function Output({ label, output }) {
-  console.log(output)
   return (
       <div>
         <h1>{label}</h1>
@@ -27,25 +24,11 @@ export default function Page() {
   }
 
   function Status({ name, status }) {
-    console.log("Hello from Status", recordingActive, speaking)
     if(speaking && !recordingActive) {
-      console.log("Speech started")
       recordingActive = true;
     } else if (!speaking && recordingActive) {
-      console.log("Speech stopped")
       recordingActive = false;
-      console.log("Calling restartRecording")
       restartRecording()
-      console.log("Recording restarted")
-      // stopRecording()
-      // startRecording()
-      // console.log("restart recording")
-      // if (transcript.text) {
-      //   activeTranscript.push(transcript.text)
-      //   console.log("Appending string ${transcript.text}")
-      //   console.log(activeTranscript)
-      // }
-      transcript.text = "******************* ";
     }
 
     return (
@@ -71,9 +54,8 @@ export default function Page() {
     stopRecording,
     restartRecording,
   } = useWhisper({
-    apiUrl: "http://localhost:8000/v1/audio/",
-    // apiUrl: "https://whisper-demo-cwrd1117bygh.customer-endpoints.nimbus.octoml.ai/v1/audio/",
-    // apiKey: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImIzOTQ0ZDkwIn0.eyJzdWIiOiJhMDk1MmJjMy1kYTE1LTRkZmMtODZiOC05YjE3NTBhZTkzYTkiLCJ0eXBlIjoidXNlckFjY2Vzc1Rva2VuIiwidGVuYW50SWQiOiI0M2Q1NjI4Mi04NzEwLTRjODItYjViMS03MzNmZTAzYzcxZDciLCJ1c2VySWQiOiJkMzBlYjZiZC1kM2NkLTQ4NTQtODNjZi04OWUwZjU0MDU2YzIiLCJyb2xlcyI6WyJGRVRDSC1ST0xFUy1CWS1BUEkiXSwicGVybWlzc2lvbnMiOlsiRkVUQ0gtUEVSTUlTU0lPTlMtQlktQVBJIl0sImF1ZCI6ImIzOTQ0ZDkwLWYwY2YtNGYxNS04YjMzLWE1MGQ5YTFiYzQzOSIsImlzcyI6Imh0dHBzOi8vaWRlbnRpdHktZGV2Lm9jdG9tbC5haSIsImlhdCI6MTY5MzMzNTgyOH0.YxKRkNL1zfycll1WPRene_-57wsETRlB8CT7GK1C_BSYcDRMlTRlf73WBjVn5UE5HTqQcfWs2ncS3fUvp__oVw13webyMClCOl1CmSXKuADOUXNtTTJub0YsCye6TvaDB5qo7gfbujI6CWtbUkGSf-QXx3FczKGJwuzeUclR-JOMHbzd2m_ZekT53_ef1obsdvAsEm4K6KQhLOtPgNjeHRefp-MD236J_v45K7mWwUufAjbOrSUBGY47jkKntwnSaen6-i8Z0N-NcGAMHsCHaPDPEABppNY_DIly9MCDAvBhcDZqt9Q-m8TknablVnGM-cjuPNs4aYj3Q_KQZpTHLg",
+    apiKey: process.env.NEXT_PUBLIC_WHISPER_API_TOKEN,
+    apiUrl: process.env.NEXT_PUBLIC_WHISPER_API_URL,
     streaming: true,
     timeSlice: 1_000, // 1 second
     autoTranscribe: true,
