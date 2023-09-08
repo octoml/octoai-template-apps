@@ -1,15 +1,4 @@
 {
     "name": "template-demos",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
-    "features": {
-        "ghcr.io/devcontainers/features/go:1": {
-            "version": "1.19"
-        },
-        "ghcr.io/devcontainers/features/docker-outside-of-docker": {
-            "version": "latest",
-            "moby": true
-        },
-        "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/devcontainers/features/python:1": {}
-    }
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20"
 }
