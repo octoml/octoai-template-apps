@@ -1,4 +1,8 @@
 {
     "name": "template-demos",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:20"
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+    "remoteEnv": {
+        "NEXT_PUBLIC_WHISPER_API_TOKEN": "${localEnv:NEXT_PUBLIC_WHISPER_API_TOKEN}",
+        "NEXT_PUBLIC_WHISPER_API_URL": "${localEnv:NEXT_PUBLIC_WHISPER_API_URL}"
+    }
 }
