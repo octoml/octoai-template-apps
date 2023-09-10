@@ -1,6 +1,0 @@
-[submodule "real-time-audio-conversation/use-whisper"]
-	path = real-time-audio-conversation/use-whisper
-	url = https://github.com/rkimball/use-whisper.git
-[submodule "octoai-cartoonizer"]
-	path = octoai-cartoonizer
-	url = https://github.com/octoml/octoai-cartoonizer
