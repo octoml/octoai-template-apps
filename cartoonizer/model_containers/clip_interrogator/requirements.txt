@@ -1,0 +1,4 @@
+sanic==23.3.0
+Pillow>=6.2.1
+transformers==4.26.0
+clip-interrogator==0.5.4
